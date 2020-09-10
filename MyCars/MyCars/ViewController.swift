@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MyCars
 //
-//  Created by Ivan Akulov on 08/02/20.
+//  Created by Дарья on 10.09.2020.
 //  Copyright © 2020 Ivan Akulov. All rights reserved.
 //
 
@@ -12,29 +12,51 @@ import CoreData
 class ViewController: UIViewController {
     
     var context: NSManagedObjectContext!
-    
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
     @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var carImageView: UIImageView!
-    @IBOutlet weak var lastTimeStartedLabel: UILabel!
+    @IBOutlet weak var myChoiceImageView: UIImageView!
+    @IBOutlet weak var greenView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var lastTimeLabel: UILabel!
     @IBOutlet weak var numberOfTripsLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var myChoiceImageView: UIImageView!
+    @IBOutlet weak var startEngineButton: UIButton!
+    @IBOutlet weak var rateItButton: UIButton!
     
-    @IBAction func segmentedCtrlPressed(_ sender: UISegmentedControl) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        createInterface()
         
     }
     
-    @IBAction func startEnginePressed(_ sender: UIButton) {
+    private func createInterface(){
         
+        greenView.layer.cornerRadius = 40
+        
+        startEngineButton.layer.cornerRadius = 20
+        rateItButton.layer.cornerRadius = 20
     }
     
-    @IBAction func rateItPressed(_ sender: UIButton) {
-        
-    }
     
     private func getDataFromFile(){
+        
+        let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "mark != nil")
+        
+        var records = 0
+        
+        do{
+            records = try context.count(for: fetchRequest)
+            print("Data is here?")
+        }catch let error as NSError{
+            print(error.localizedDescription)
+        }
+        
+        guard records == 0 else {return}
         
         guard let pathToFie = Bundle.main.path(forResource: "data", ofType: "plist"), let dataArray = NSArray(contentsOfFile: pathToFie) else {return}
         
@@ -65,7 +87,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     private func getColor(colorDic: [String: Float]) -> UIColor {
         guard let red = colorDic["red"],
             let green = colorDic["green"],
@@ -73,11 +94,14 @@ class ViewController: UIViewController {
         return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: 1.0)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+    
+    @IBAction func startEnginePressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func rateItPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func segmentedPressed(_ sender: UISegmentedControl) {
     }
     
 }
-

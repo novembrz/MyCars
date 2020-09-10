@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let vc = window?.rootViewController as! ViewController
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         vc.context = context
     }
     
