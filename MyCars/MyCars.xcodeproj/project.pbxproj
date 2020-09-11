@@ -15,7 +15,6 @@
 		35F6275723EE6DCD00090812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35F6275623EE6DCD00090812 /* Main.storyboard */; };
 		35F6275A23EE6FB000090812 /* MyCars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35F6275823EE6FB000090812 /* MyCars.xcdatamodeld */; };
 		C26ACB1D250A6CFE00A21346 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26ACB1C250A6CFE00A21346 /* ViewController.swift */; };
-		C26ACB1F250A721300A21346 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26ACB1E250A721300A21346 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		35F6275623EE6DCD00090812 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		35F6275923EE6FB000090812 /* MyCars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCars.xcdatamodel; sourceTree = "<group>"; };
 		C26ACB1C250A6CFE00A21346 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C26ACB1E250A721300A21346 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				359705A01C08159E00D13FE9 /* AppDelegate.swift */,
 				3585ECB623AB388700F49C82 /* SceneDelegate.swift */,
 				C26ACB1C250A6CFE00A21346 /* ViewController.swift */,
-				C26ACB1E250A721300A21346 /* GradientView.swift */,
 				359705AA1C08159E00D13FE9 /* Assets.xcassets */,
 				35F6275623EE6DCD00090812 /* Main.storyboard */,
 				359705AC1C08159E00D13FE9 /* LaunchScreen.storyboard */,
@@ -152,7 +149,6 @@
 			files = (
 				C26ACB1D250A6CFE00A21346 /* ViewController.swift in Sources */,
 				352762E01C0AEF3400A3BABA /* AppDelegate.swift in Sources */,
-				C26ACB1F250A721300A21346 /* GradientView.swift in Sources */,
 				35F6275A23EE6FB000090812 /* MyCars.xcdatamodeld in Sources */,
 				3585ECB723AB388700F49C82 /* SceneDelegate.swift in Sources */,
 			);

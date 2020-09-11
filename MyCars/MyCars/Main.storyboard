@@ -15,9 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamborginiMurcielago" translatesAutoresizingMaskIntoConstraints="NO" id="rER-gn-wNO">
-                                <rect key="frame" x="50" y="221" width="314" height="167"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lamborgini" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgv-Q2-LG4">
                                 <rect key="frame" x="40" y="69" width="240" height="56"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
@@ -31,10 +28,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hie-uh-8lV">
-                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                <rect key="frame" x="0.0" y="431" width="414" height="465"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h0Q-YR-G6X">
-                                        <rect key="frame" x="40" y="356" width="334" height="50"/>
+                                        <rect key="frame" x="40" y="373" width="334" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ef-2v-qc8">
                                                 <rect key="frame" x="0.0" y="0.0" width="159.5" height="50"/>
@@ -134,23 +131,28 @@
                                     <constraint firstAttribute="height" constant="64" id="glx-H1-gdJ"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ferrariEnzo" translatesAutoresizingMaskIntoConstraints="NO" id="rER-gn-wNO">
+                                <rect key="frame" x="51" y="221" width="312" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="gEH-sq-GcJ"/>
+                                    <constraint firstAttribute="width" secondItem="rER-gn-wNO" secondAttribute="height" multiplier="210:101" id="nbz-FI-BXt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.20493733880000001" green="0.2177923024" blue="0.25154352190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7mm-X1-yXf" firstAttribute="trailing" secondItem="rER-gn-wNO" secondAttribute="trailing" constant="50" id="0EL-kW-qNd"/>
                             <constraint firstItem="0kR-47-2kO" firstAttribute="centerY" secondItem="c4G-U2-BKL" secondAttribute="centerY" id="4sg-o0-Yrk"/>
                             <constraint firstItem="rER-gn-wNO" firstAttribute="top" secondItem="c4G-U2-BKL" secondAttribute="bottom" constant="60" id="Jc0-d5-DRk"/>
                             <constraint firstItem="Sgv-Q2-LG4" firstAttribute="leading" secondItem="7mm-X1-yXf" secondAttribute="leading" constant="40" id="Ngq-AH-ndH"/>
                             <constraint firstItem="7mm-X1-yXf" firstAttribute="trailing" secondItem="0kR-47-2kO" secondAttribute="trailing" constant="20" id="Qju-zJ-GHo"/>
-                            <constraint firstItem="rER-gn-wNO" firstAttribute="leading" secondItem="7mm-X1-yXf" secondAttribute="leading" constant="50" id="SQE-30-oHS"/>
                             <constraint firstItem="Hie-uh-8lV" firstAttribute="leading" secondItem="7mm-X1-yXf" secondAttribute="leading" id="STV-L4-CcA"/>
                             <constraint firstAttribute="bottom" secondItem="Hie-uh-8lV" secondAttribute="bottom" id="Uqi-oR-PJH"/>
                             <constraint firstItem="c4G-U2-BKL" firstAttribute="leading" secondItem="7mm-X1-yXf" secondAttribute="leading" constant="40" id="X3x-iG-1Oe"/>
                             <constraint firstItem="Hie-uh-8lV" firstAttribute="trailing" secondItem="7mm-X1-yXf" secondAttribute="trailing" id="aT7-i1-zd2"/>
+                            <constraint firstItem="Hie-uh-8lV" firstAttribute="top" secondItem="rER-gn-wNO" secondAttribute="bottom" constant="60" id="cIh-s1-3yb"/>
                             <constraint firstItem="c4G-U2-BKL" firstAttribute="top" secondItem="Sgv-Q2-LG4" secondAttribute="bottom" constant="8" id="ijn-it-PIk"/>
-                            <constraint firstItem="Hie-uh-8lV" firstAttribute="top" secondItem="rER-gn-wNO" secondAttribute="bottom" constant="60" id="kLQ-xn-UkQ"/>
                             <constraint firstItem="Sgv-Q2-LG4" firstAttribute="top" secondItem="7mm-X1-yXf" secondAttribute="top" constant="25" id="r1f-Zt-KAL"/>
-                            <constraint firstItem="rER-gn-wNO" firstAttribute="height" secondItem="Ody-WJ-JSh" secondAttribute="height" multiplier="0.186384" id="zIP-Lk-TRs"/>
+                            <constraint firstItem="rER-gn-wNO" firstAttribute="centerX" secondItem="7mm-X1-yXf" secondAttribute="centerX" id="rWM-89-CZv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7mm-X1-yXf"/>
                     </view>
@@ -174,7 +176,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lamborginiMurcielago" width="210" height="101"/>
+        <image name="ferrariEnzo" width="850" height="567"/>
         <image name="myChoice" width="150" height="150"/>
     </resources>
 </document>

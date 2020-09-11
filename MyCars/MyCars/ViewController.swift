@@ -11,9 +11,18 @@ import CoreData
 
 class ViewController: UIViewController {
     
+    lazy var dateFormatted: DateFormatter = {
+        let df = DateFormatter()
+        df.timeStyle = .none
+        df.dateStyle = .short
+        
+        return df
+    }()
+    
     var context: NSManagedObjectContext!
+    var car: Car!
 
-    @IBOutlet weak var markLabel: UILabel!
+    @IBOutlet weak var markLabel: UILabel! 
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var myChoiceImageView: UIImageView!
@@ -30,7 +39,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         createInterface()
+        getDataFromFile()
         
+        let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
+        let mark = segmentedControl.titleForSegment(at: 0)
+        fetchRequest.predicate = NSPredicate(format: "mark == %@", mark!)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            car = results.first
+            insertData(with: car!)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     private func createInterface(){
@@ -49,49 +70,59 @@ class ViewController: UIViewController {
         
         var records = 0
         
-        do{
+        do {
             records = try context.count(for: fetchRequest)
-            print("Data is here?")
-        }catch let error as NSError{
+            print("Is Data there already?")
+        } catch let error as NSError {
             print(error.localizedDescription)
         }
         
-        guard records == 0 else {return}
+        guard records == 0 else { return }
         
-        guard let pathToFie = Bundle.main.path(forResource: "data", ofType: "plist"), let dataArray = NSArray(contentsOfFile: pathToFie) else {return}
+        guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),
+        let dataArray = NSArray(contentsOfFile: pathToFile) else { return }
         
-        
-        for dic in dataArray{
+        for dictionary in dataArray {
+            let entity = NSEntityDescription.entity(forEntityName: "Car", in: context)
+            let car = NSManagedObject(entity: entity!, insertInto: context) as! Car
             
-            guard let entity = NSEntityDescription.entity(forEntityName: "Car", in: context) else {return}
+            let carDictionary = dictionary as! [String : AnyObject]
+            car.mark = carDictionary["mark"] as? String
+            car.model = carDictionary["model"] as? String
+            car.rating = carDictionary["rating"] as! Double
+            car.lastStarted = carDictionary["lastStarted"] as? Date
+            car.timesDriver = carDictionary["timesDriven"] as! Int16
+            car.myChoice = carDictionary["myChoice"] as! Bool
             
-            let car = NSManagedObject(entity: entity, insertInto: context) as! Car
-            let carDic = dic as! [String: AnyObject]
-            
-            car.mark = carDic["mark"] as? String
-            car.model = carDic["model"] as? String
-            car.lastStarted = carDic["lastStarted"] as? Date
-            car.myChoice = carDic["myChoice"] as! Bool
-            car.rating = carDic["rating"] as! Double
-            car.timesDriver = carDic["timesDriver"] as! Int16
-            
-            let imageName = carDic["imageName"] as! String
-            let image = UIImage(named: imageName)
-            let imageData = image?.pngData()
+            let imageName = carDictionary["imageName"] as? String
+            let image = UIImage(named: imageName!)
+            let imageData = image!.pngData()
             car.imageData = imageData
             
-            if let colorDic = carDic["tintColor"] as? [String: Float] {
-                car.tintColor = getColor(colorDic: colorDic)
+            if let colorDictionary = carDictionary["tintColor"] as? [String : Float] {
+                car.tintColor = getColor(colorDictionary: colorDictionary)
             }
-            
         }
     }
     
-    private func getColor(colorDic: [String: Float]) -> UIColor {
-        guard let red = colorDic["red"],
-            let green = colorDic["green"],
-            let blue = colorDic["blue"] else {return UIColor()}
+    private func getColor(colorDictionary: [String : Float]) -> UIColor {
+        guard let red = colorDictionary["red"],
+            let green = colorDictionary["green"],
+            let blue = colorDictionary["blue"] else { return UIColor() }
         return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: 1.0)
+    }
+    
+    
+    private func insertData(with car: Car) {
+        
+        carImageView.image = UIImage(data: car.imageData!)
+        markLabel.text = car.mark
+        modelLabel.text = car.model
+        myChoiceImageView.isHidden = !(car.myChoice)
+        ratingLabel.text = "Rating: \(car.rating) / 10"
+        numberOfTripsLabel.text = "Number of trips: \(car.timesDriver)"
+        segmentedControl.tintColor = car.tintColor as? UIColor
+        lastTimeLabel.text = "Last time strted: \(dateFormatted.string(from: car.lastStarted!))"
     }
     
     
