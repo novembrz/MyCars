@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MyCars
 //
-//  Created by Ivan Akulov on 08/02/20.
-//  Copyright © 2020 Ivan Akulov. All rights reserved.
+//  Created by Дарья on 10.09.2020.
+//  Copyright © 2020 novembrz. All rights reserved.
 //
 
 import UIKit

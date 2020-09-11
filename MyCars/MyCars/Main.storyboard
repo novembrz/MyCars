@@ -97,6 +97,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwz-X8-Oen">
+                                        <rect key="frame" x="204" y="46" width="170" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="d8J-Ym-Fdm"/>
+                                            <constraint firstAttribute="width" constant="170" id="gPt-Pb-ihd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="My future trips">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="giF-lk-OLv" kind="modal" modalPresentationStyle="fullScreen" id="8Ph-s0-4xn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.37470293049999998" green="0.67168599370000004" blue="0.4661303759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -110,7 +124,9 @@
                                     <constraint firstItem="KNN-yR-zBa" firstAttribute="top" secondItem="Hie-uh-8lV" secondAttribute="top" constant="36" id="YOp-fg-sYQ"/>
                                     <constraint firstAttribute="bottom" secondItem="h0Q-YR-G6X" secondAttribute="bottom" constant="42" id="gXS-oR-esc"/>
                                     <constraint firstItem="iIr-na-p0Z" firstAttribute="leading" secondItem="Hie-uh-8lV" secondAttribute="leading" constant="40" id="h01-rk-qzQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="jwz-X8-Oen" secondAttribute="trailing" constant="40" id="h8T-4Q-5EU"/>
                                     <constraint firstAttribute="trailing" secondItem="Z3Q-fN-Jyy" secondAttribute="trailing" constant="15" id="jAH-IK-GhL"/>
+                                    <constraint firstItem="jwz-X8-Oen" firstAttribute="centerY" secondItem="KNN-yR-zBa" secondAttribute="centerY" id="nxj-nh-rgQ"/>
                                     <constraint firstItem="Z3Q-fN-Jyy" firstAttribute="top" secondItem="KNN-yR-zBa" secondAttribute="bottom" constant="30" id="ozw-tX-GHb"/>
                                     <constraint firstItem="KNN-yR-zBa" firstAttribute="leading" secondItem="Hie-uh-8lV" secondAttribute="leading" constant="40" id="s0n-PC-cOl"/>
                                     <constraint firstItem="fRa-UR-SmE" firstAttribute="leading" secondItem="Hie-uh-8lV" secondAttribute="leading" constant="40" id="zqs-5L-ria"/>
@@ -158,6 +174,7 @@
                     </view>
                     <connections>
                         <outlet property="carImageView" destination="rER-gn-wNO" id="8k3-ue-yyT"/>
+                        <outlet property="futureTripsButton" destination="jwz-X8-Oen" id="OPp-FK-1Kd"/>
                         <outlet property="greenView" destination="Hie-uh-8lV" id="mkj-OS-yhd"/>
                         <outlet property="lastTimeLabel" destination="I6p-pN-u42" id="oJH-6b-QXz"/>
                         <outlet property="markLabel" destination="Sgv-Q2-LG4" id="oSM-6f-Irl"/>
@@ -173,6 +190,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqv-4F-sxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="355.58035714285711"/>
+        </scene>
+        <!--Trips View Controller-->
+        <scene sceneID="1xa-sX-Mxk">
+            <objects>
+                <viewController id="giF-lk-OLv" customClass="TripsViewController" customModule="MyCars" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9xm-wN-IUV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRIPS" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV2-QH-bXV">
+                                <rect key="frame" x="40" y="115" width="135.5" height="56"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My future" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axa-w6-PEz">
+                                <rect key="frame" x="40" y="79" width="102" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ego-Y5-cTC">
+                                <rect key="frame" x="0.0" y="205" width="414" height="691"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.37470293049999998" green="0.67168599370000004" blue="0.4661303759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="ysW-jT-qAg" customClass="TripsCell" customModule="MyCars" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysW-jT-qAg" id="HS4-kS-x8o">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.37470293049999998" green="0.67168599370000004" blue="0.4661303759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="giF-lk-OLv" id="ryl-wv-mc0"/>
+                                    <outlet property="delegate" destination="giF-lk-OLv" id="WYy-0u-XQG"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olq-Yc-QNw">
+                                <rect key="frame" x="364" y="44" width="30" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="8Ci-0m-3ZV" eventType="touchUpInside" id="ZJr-vD-kne"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37470293049999998" green="0.67168599370000004" blue="0.4661303759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="axa-w6-PEz" firstAttribute="leading" secondItem="jvB-Ip-A71" secondAttribute="leading" constant="40" id="Cgm-HE-ms0"/>
+                            <constraint firstItem="ego-Y5-cTC" firstAttribute="leading" secondItem="jvB-Ip-A71" secondAttribute="leading" id="LPg-PS-6B5"/>
+                            <constraint firstItem="OV2-QH-bXV" firstAttribute="top" secondItem="axa-w6-PEz" secondAttribute="bottom" constant="8" id="NJ3-LU-x1D"/>
+                            <constraint firstAttribute="bottom" secondItem="ego-Y5-cTC" secondAttribute="bottom" id="RIz-sF-ZH0"/>
+                            <constraint firstItem="ego-Y5-cTC" firstAttribute="top" secondItem="OV2-QH-bXV" secondAttribute="bottom" constant="34" id="Szk-On-ofj"/>
+                            <constraint firstItem="OV2-QH-bXV" firstAttribute="leading" secondItem="jvB-Ip-A71" secondAttribute="leading" constant="40" id="Wus-GQ-11E"/>
+                            <constraint firstItem="jvB-Ip-A71" firstAttribute="trailing" secondItem="olq-Yc-QNw" secondAttribute="trailing" constant="20" id="ZJM-w0-or5"/>
+                            <constraint firstItem="olq-Yc-QNw" firstAttribute="top" secondItem="jvB-Ip-A71" secondAttribute="top" id="gDb-WL-sex"/>
+                            <constraint firstItem="axa-w6-PEz" firstAttribute="top" secondItem="jvB-Ip-A71" secondAttribute="top" constant="35" id="jhh-dv-Aly"/>
+                            <constraint firstItem="ego-Y5-cTC" firstAttribute="trailing" secondItem="jvB-Ip-A71" secondAttribute="trailing" id="jjG-by-C4k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jvB-Ip-A71"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Iau-ne-44l"/>
+                    <connections>
+                        <outlet property="tableView" destination="ego-Y5-cTC" id="Crg-jE-19U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQi-Aq-iv8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8Ci-0m-3ZV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1782.608695652174" y="355.58035714285711"/>
         </scene>
     </scenes>
     <resources>
