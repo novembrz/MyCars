@@ -163,9 +163,9 @@
                         <outlet property="markLabel" destination="Sgv-Q2-LG4" id="oSM-6f-Irl"/>
                         <outlet property="modelLabel" destination="c4G-U2-BKL" id="MWq-0z-0vi"/>
                         <outlet property="myChoiceImageView" destination="0kR-47-2kO" id="gMS-WL-UNp"/>
-                        <outlet property="numberOfTripsLabel" destination="iIr-na-p0Z" id="Uas-Pz-eER"/>
+                        <outlet property="numberOfTripsLabel" destination="fRa-UR-SmE" id="Zmh-Pt-G5l"/>
                         <outlet property="rateItButton" destination="Kda-c4-DVs" id="jXa-LY-bvh"/>
-                        <outlet property="ratingLabel" destination="iIr-na-p0Z" id="Lhx-sB-ZYb"/>
+                        <outlet property="ratingLabel" destination="iIr-na-p0Z" id="2Y5-Uq-N22"/>
                         <outlet property="segmentedControl" destination="Z3Q-fN-Jyy" id="Tnd-dG-NrG"/>
                         <outlet property="startEngineButton" destination="9ef-2v-qc8" id="J6G-4z-yuX"/>
                     </connections>
